@@ -1,0 +1,49 @@
+[package]
+name = "scenery"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+bytemuck = "1.23.1"
+glam = { version = "0.30.4", features = ["bytemuck", "serde", "rand", "rkyv"] }
+log = "0.4.27"
+meshopt = "0.4.1"
+obj-rs = "0.7.4"
+png = "0.17.16"
+pretty_env_logger = "0.5.0"
+rand = "0.9"
+thiserror = "2.0.12"
+tracy-client = "0.18.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.140"
+zune-jpeg = "0.4.17"
+rkyv = { version = "0.8.10" }
+bitflags = "2.9.1"
+mikktspace = { version = "0.3.0", default-features = false, features = [
+    "glam",
+] }
+
+
+[dependencies.gltf]
+version = "1.4.1"
+features = [
+    "extras",
+    "names",
+    "KHR_lights_punctual",
+    "KHR_materials_pbrSpecularGlossiness",
+    "KHR_materials_unlit",
+    "KHR_lights_punctual",
+    "KHR_texture_transform",
+    "KHR_materials_variants",
+    "KHR_materials_volume",
+    "KHR_materials_specular",
+    "KHR_materials_transmission",
+    "KHR_materials_ior",
+    "KHR_materials_emissive_strength",
+    "allow_empty_texture",
+    "extensions",
+    "utils",
+    "import",
+    "guess_mime_type",
+]

@@ -1,0 +1,33 @@
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+
+[unstable]
+codegen-backend = true
+profile-rustflags = true
+
+# unsupported x86 llvm intrinsic llvm.x86.vcvtph2ps.128; replacing with trap
+# [profile.dev]
+# codegen-backend = "cranelift"
+
+[profile.dev.package."*"]
+codegen-backend = "llvm"
+
+[profile.dev.package.scenery]
+codegen-backend = "llvm"
+
+rustflags = [
+    # Nightly
+    "-Zshare-generics=n", # This needs to be off if you use dynamic linking on Windows.
+    "-Zthreads=0",
+]
+
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = [
+    "-C",
+    "link-arg=-fuse-ld=/usr/bin/mold",
+    "-Clink-arg=-Wl,--no-rosegment",
+]
+
+[net]
+git-fetch-with-cli = true

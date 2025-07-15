@@ -1,0 +1,8 @@
+/target
+*.spv
+.vscode
+imgui.ini
+*.ptto
+configs/
+build/
+.cache

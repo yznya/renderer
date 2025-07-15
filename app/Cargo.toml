@@ -1,0 +1,51 @@
+[package]
+name = "potato"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+default-run = "potato"
+
+[features]
+profile_allocations = []
+
+[dependencies]
+anyhow = "1.0.98"
+ash = "0.38.0"
+bytemuck = "1.23.1"
+egui = "0.31.1"
+glam = { version = "0.30.4", features = ["bytemuck", "serde", "rand", "rkyv"] }
+log = "0.4.27"
+pretty_env_logger = "0.5.0"
+tracy-client = "0.18.1"
+winit = "0.30.11"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.140"
+egui_ltreeview = { git = "https://github.com/LennysLounge/egui_ltreeview" }
+
+lava = { path = "../lava" }
+ktxvulkan-sys = { git = "ssh://git@github.com/yznya/ktxvulkan-sys.git" }
+scenery = { path = "../scenery" }
+renderer = { path = "../renderer" }
+
+[dependencies.gltf]
+version = "1.4.1"
+features = [
+    "extras",
+    "names",
+    "KHR_lights_punctual",
+    "KHR_materials_pbrSpecularGlossiness",
+    "KHR_materials_unlit",
+    "KHR_lights_punctual",
+    "KHR_texture_transform",
+    "KHR_materials_variants",
+    "KHR_materials_volume",
+    "KHR_materials_specular",
+    "KHR_materials_transmission",
+    "KHR_materials_ior",
+    "KHR_materials_emissive_strength",
+    "allow_empty_texture",
+    "extensions",
+    "utils",
+    "import",
+    "guess_mime_type",
+]

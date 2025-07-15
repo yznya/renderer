@@ -1,0 +1,40 @@
+[package]
+name = "lava"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+ash = "0.38.0"
+bytemuck = "1.23.1"
+ddsfile = "0.5.2"
+egui = "0.31.1"
+egui-winit = "0.31.1"
+glam = { version = "0.30.4", features = ["bytemuck", "serde", "rand"] }
+gpu-allocator = { version = "0.27.0", features = ["vulkan"] }
+log = "0.4.27"
+meshopt = "0.4.1"
+obj-rs = "0.7.4"
+png = "0.17.16"
+pretty_env_logger = "0.5.0"
+rand = "0.8.5"
+spirv-cross2 = "0.4.6"
+thiserror = "2.0.12"
+tracy-client = "0.18.1"
+winit = "0.30.11"
+serde = { version = "1.0", features = ["derive"] }
+postcard = { version = "1.1.1", features = ["use-std"] }
+shaderc = "0.8.3"
+notify = "8.0.0"
+slab = "0.4.9"
+ktxvulkan-sys = { git = "ssh://git@github.com/yznya/ktxvulkan-sys.git" }
+
+[dependencies.gltf]
+version = "1.4"
+features = [
+    "extras",
+    "names",
+    "KHR_lights_punctual",
+    "KHR_materials_pbrSpecularGlossiness",
+    "KHR_materials_unlit",
+]

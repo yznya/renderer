@@ -1,0 +1,12 @@
+[workspace]
+members = ["app", "bake", "lava", "renderer", "scenery"]
+resolver = "2"
+
+[profile.dev]
+opt-level = 0
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev.package.scenery]
+opt-level = 3
