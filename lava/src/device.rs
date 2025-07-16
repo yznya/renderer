@@ -780,7 +780,8 @@ impl<'d> LDeviceRef<'d> {
             ktxvulkan_sys::ktxTexture2_CreateFromMemory(
                 cubemap_tex_data.as_ptr(),
                 cubemap_tex_data.len(),
-                ktxvulkan_sys::ktxTextureCreateFlagBits_KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT,
+                // i32 on windows and u32 on linux :)
+                ktxvulkan_sys::ktxTextureCreateFlagBits_KTX_TEXTURE_CREATE_LOAD_IMAGE_DATA_BIT as u32,
                 &mut new_tex,
             )
         };

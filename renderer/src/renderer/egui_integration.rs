@@ -837,7 +837,7 @@ impl Drop for Integration<'_> {
         unsafe {
             // destroying the swapchain on linux causes a segfault
             #[cfg(target_os = "windows")]
-            self.egui_winit.drop();
+            ManuallyDrop::drop(&mut self.egui_winit);
 
             self.device
                 .destroy_descriptor_set_layout(self.user_texture_layout, None);
